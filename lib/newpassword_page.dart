@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 
+import 'auth_service.dart';
+
 class NewPasswordPage extends StatefulWidget {
   @override
   _NewPasswordPageState createState() => _NewPasswordPageState();
 }
 
 class _NewPasswordPageState extends State<NewPasswordPage> {
+
+  final AuthService _auth = AuthService();
+  String email = '';
+  String error = '';
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,24 +40,24 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
               ),
             ),
             Form(
+              key: _formKey,
               child: Column(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.fromLTRB(100.0, 20.0, 100.00, 10.0),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Enter new password',
+                    padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
+                    child: TextFormField(
+                      onChanged: (value){
+                        setState(() => email = value);
+                      },
+                      decoration: const InputDecoration(
+                        hintText: 'Email',
                       ),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(100.0, 10.0, 100.00, 30.0),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Repeat new password',
-                      ),
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Please enter email';
+                        }
+                        return null;
+                      },
                     ),
                   ),
                 ],
@@ -60,11 +68,18 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
                 child: FlatButton(
                   color: Colors.orange[800],
                   textColor: Colors.white,
-                  onPressed: () {
-                    /*...*/
+                  onPressed: ()async{
+                    if (_formKey.currentState.validate()){
+                      dynamic result = await _auth.resetPassword(email);
+                      if (result == null){
+                        setState(() => error = 'Please enter a valid email');
+                      }
+                    }else{
+
+                    }
                   },
                   child: Text(
-                    "SAVE",
+                    "Reset",
                     style: TextStyle(fontSize: 20.0),
                   ),
                 )),

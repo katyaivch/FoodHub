@@ -43,7 +43,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
             key: _formKey,
             child: Column(
               children: <Widget>[
-                Container(
+                /*Container(
                   padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
                   child: TextFormField(
                     onChanged: (value){},
@@ -52,7 +52,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     ),
 
                   ),
-                ),
+                ),*/
                 Container(
                   padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
                   child: TextFormField(
@@ -70,7 +70,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     },
                   ),
                 ),
-                Container(
+                /*Container(
                   padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
                   child: TextFormField(
                     onChanged: (value){},
@@ -90,7 +90,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
                   ),
                 ),
-
+*/
                 Container(
                   padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
                   child: TextFormField(
@@ -109,7 +109,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     },
                   ),
                 ),
-                Container(
+               /* Container(
                   padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
                   child: TextFormField(
                     onChanged: (value){},
@@ -119,7 +119,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     ),
 
                   ),
-                ),
+                ),*/
               ],
             ),
           ),

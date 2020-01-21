@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foohub_app/checkout_page.dart';
 import 'package:foohub_app/home_page.dart';
 import 'package:foohub_app/login_page.dart';
 import 'package:foohub_app/registration_page.dart';
@@ -21,8 +22,8 @@ class Wrapper extends StatelessWidget {
     //return either Home or auth pages
     if (user == null){
       //return LoginPage();
-
-      return ProfilePage(title: 'Profile');
+      return CheckOutPage();
+      //return ProfilePage(title: 'Profile');
     }else{
       return HomePage();
     }

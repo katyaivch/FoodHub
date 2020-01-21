@@ -48,7 +48,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             centerTitle: true,
           ),
-          drawer: new Drawer(child: new Container(),),
+          //drawer: new Drawer(child: new Container(),),
           backgroundColor: Colors.transparent,
           body: new Center(
             child: new Column(

@@ -29,6 +29,12 @@ class AuthService{
 
   }
 
+  //reset password
+  Future resetPassword(String email) async{
+
+     await _auth.sendPasswordResetEmail(email: email);
+
+  }
 
   //sign with email
   Future signInWithEmailandPass(String email, String pass) async{
@@ -54,6 +60,9 @@ class AuthService{
       return null;
     }
   }
+
+  //register with FaceBook
+
 
 
   //sign out

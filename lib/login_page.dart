@@ -33,14 +33,14 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: Column(
         children: <Widget>[
-          /*Container(
+          Container(
             width: 350,
             height: 350,
             child: Image(
               image: AssetImage('assets/foodhub_landing.png'),
             ),
 
-          ),*/
+          ),
           Form(
             key: _formKey,
             child: Column(
@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                       setState(() => email = value);
                     },
                     decoration: const InputDecoration(
-                      hintText: 'Username',
+                      hintText: 'Email',
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
