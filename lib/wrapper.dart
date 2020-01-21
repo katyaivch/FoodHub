@@ -9,7 +9,7 @@ import 'package:foohub_app/userprofile_page.dart';
 import 'package:provider/provider.dart';
 import 'package:foohub_app/user_model.dart';
 
-import 'list_page.dart';
+import 'homelist_page.dart';
 import 'newpassword_page.dart';
 import 'orderinformation_page.dart';
 
