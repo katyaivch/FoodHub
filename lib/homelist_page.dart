@@ -7,46 +7,137 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State {
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     final title = "Recipe Videos";
 
     return MaterialApp(
-        title: title,
-        home: Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.orange[800],
-              title: Text(
-                'FOOD HUB',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-              centerTitle: true,
+      title: title,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.orange[800],
+          title: Text(
+            'FOOD HUB',
+            style: TextStyle(
+              color: Colors.white,
             ),
-            body: StreamBuilder<QuerySnapshot>(
-              stream: Firestore.instance.collection('Recipe').snapshots(),
-              builder: (BuildContext context,
-                  AsyncSnapshot<QuerySnapshot> snapshot) {
-                if (snapshot.hasError)
-                  return new Text('Error: ${snapshot.error}');
-                switch (snapshot.connectionState) {
-                  case ConnectionState.waiting:
-                    return new Text('Loading...');
-                  default:
-                    return new ListView(
-                      children: snapshot.data.documents
-                          .map((DocumentSnapshot document) {
-                        return new Text(document['name']);
-                        // return new ListTile(
-                        //   title: new Text(document['title']),
-                        //   subtitle: new Text(document['author']),
-                        // );
-                      }).toList(),
-                    );
-                }
-              },
-            )));
+          ),
+          centerTitle: true,
+        ),
+        body: StreamBuilder<QuerySnapshot>(
+          stream: Firestore.instance.collection('Recipe').snapshots(),
+          builder:
+              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (snapshot.hasError) return new Text('Error: ${snapshot.error}');
+            switch (snapshot.connectionState) {
+              case ConnectionState.waiting:
+                return new Text('Loading...');
+              default:
+                return new ListView(
+                  children:
+                      snapshot.data.documents.map((DocumentSnapshot document) {
+                    return new Text(document['name']);
+                    // return new ListTile(
+                    //   title: new Text(document['title']),
+                    //   subtitle: new Text(document['author']),
+                    // );
+                  }).toList(),
+                );
+            }
+          },
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person,
+                color: Colors.orange[800],
+                size: 45.0,
+              ),
+              title: Text(''),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.view_comfy,
+                color: Colors.orange[800],
+                size: 45.0,
+              ),
+              title: Text(''),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.feedback,
+                color: Colors.orange[800],
+                size: 45.0,
+              ),
+              title: Text(''),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.favorite,
+                color: Colors.orange[800],
+                size: 45.0,
+              ),
+              title: Text(''),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.shopping_basket,
+                color: Colors.orange[800],
+                size: 45.0,
+              ),
+              title: Text(''),
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: (index) {
+            setState(() {
+              _selectedIndex = index;
+              switch (_selectedIndex) {
+                case 0:
+                  {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                ProfilePage(title: 'Profile')));
+                  }
+                  break;
+                case 1:
+                  {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeView()));
+                  }
+                  break;
+                case 2:
+                  {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => FAQPage()));
+                  }
+                  break;
+                case 3:
+                  {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeView()));
+                  }
+                  break;
+                case 4:
+                  {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ShoppingCart()));
+                  }
+                  break;
+              }
+            });
+          },
+        ),
+      ),
+    );
   }
 }
 
