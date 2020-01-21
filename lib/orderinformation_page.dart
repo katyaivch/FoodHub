@@ -7,6 +7,7 @@ class OrderConfirmationPage extends StatefulWidget {
 
 class _OrderConfirmationPageState extends State<OrderConfirmationPage> {
   int _selectedIndex = 0;
+  int i = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class _OrderConfirmationPageState extends State<OrderConfirmationPage> {
             Container(
               padding: EdgeInsets.fromLTRB(120.0, 40.0, 120.00, 30.0),
               child: Text(
-                '23',
+                i.toString(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.orange[800],

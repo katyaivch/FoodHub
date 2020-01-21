@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:foohub_app/orderinformation_page.dart';
 
 class CheckOutPage extends StatefulWidget {
   @override
@@ -246,7 +247,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                   textColor: Colors.white,
                   padding: EdgeInsets.all(5.0),
                   onPressed: () {
-                    /*...*/
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => OrderConfirmationPage()));
                   },
                   child: Text(
                     "Pay",
