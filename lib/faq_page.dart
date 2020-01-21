@@ -5,9 +5,14 @@ class FAQPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FoodHub'),
-        //centerTitle: true,
         backgroundColor: Colors.orange[800],
+        title: Text(
+          'FOOD HUB',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,

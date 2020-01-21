@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:foohub_app/auth_service.dart';
+import 'package:foohub_app/newpassword_page.dart';
 import 'package:foohub_app/registration_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
+
 
 class _LoginPageState extends State<LoginPage> {
 
@@ -20,20 +22,25 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FoodHub'),
-        //centerTitle: true,
         backgroundColor: Colors.orange[800],
+        title: Text(
+          'FOOD HUB',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
       ),
       body: Column(
         children: <Widget>[
-          Container(
+          /*Container(
             width: 350,
             height: 350,
             child: Image(
               image: AssetImage('assets/foodhub_landing.png'),
             ),
 
-          ),
+          ),*/
           Form(
             key: _formKey,
             child: Column(
@@ -113,18 +120,17 @@ class _LoginPageState extends State<LoginPage> {
 
               FlatButton(
                 onPressed: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => RegistrationPage()),
-                  );
+                  navigateToRegisterPage(context);
                 },
                 //color: Colors.orange[800],
                 child: Text('Registration'),
 
               ),
               FlatButton(
-                onPressed: (){},
-                //color: Colors.orange[800],
+                onPressed: (){
+                  navigateToResetPassPage(context);
+                },
+
                 child: Text('Forgot Password'),
               ),
             ],
@@ -132,5 +138,13 @@ class _LoginPageState extends State<LoginPage> {
         ],
       ),
     );
+  }
+
+  Future navigateToRegisterPage(BuildContext context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => RegistrationPage()));
+  }
+
+  Future navigateToResetPassPage(BuildContext context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => NewPasswordPage()));
   }
 }

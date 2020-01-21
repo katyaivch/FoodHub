@@ -20,9 +20,14 @@ class _RegistrationPageState extends State<RegistrationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FoodHub'),
-        //centerTitle: true,
         backgroundColor: Colors.orange[800],
+        title: Text(
+          'FOOD HUB',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -123,7 +128,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
             children: <Widget>[
               //Switch (value: null),
               Checkbox(
-                value: false,
+                value: true,
               ),
               Text('I agree with terms and conditions'),
             ],
