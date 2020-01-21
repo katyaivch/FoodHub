@@ -296,6 +296,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
+
               Icons.shopping_basket,
               color: Colors.orange[800],
               size: 45.0,

@@ -34,14 +34,14 @@ class _OrderConfirmationPageState extends State<OrderConfirmationPage> {
                 i.toString(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.orange[800],
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
                 ),
               ),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.white,
+                color: Colors.orange[800],
                 border: Border.all(
                   color: Colors.grey[300],
                   width: 3,
