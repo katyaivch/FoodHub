@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "198954131668",
+    "firebase_url": "https://food-hub-ec00c.firebaseio.com",
+    "project_id": "food-hub-ec00c",
+    "storage_bucket": "food-hub-ec00c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198954131668:android:c8601b702a7c9c5fae1b41",
+        "android_client_info": {
+          "package_name": "com.example.foohub_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198954131668-5no6sm96dsinant37vg7g5c1ojim5pbj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiWABQDuVLHiN2gx2Kb_KZaZKXYa8APKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198954131668-5no6sm96dsinant37vg7g5c1ojim5pbj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198954131668:android:ec98698be4337baaae1b41",
+        "android_client_info": {
+          "package_name": "com.foodhub.foodhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198954131668-5no6sm96dsinant37vg7g5c1ojim5pbj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiWABQDuVLHiN2gx2Kb_KZaZKXYa8APKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198954131668-5no6sm96dsinant37vg7g5c1ojim5pbj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

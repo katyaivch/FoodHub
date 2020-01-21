@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:foohub_app/auth_service.dart';
 import 'package:foohub_app/registration_page.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
+  final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
+
+  String email = '';
+  String password = '';
+  String error = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,34 +34,46 @@ class LoginPage extends StatelessWidget {
             ),
 
           ),
-          Container(
-            padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
-            child: TextFormField(
-
-              decoration: const InputDecoration(
-                hintText: 'Username',
-              ),
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please enter some text';
-                }
-                return null;
-              },
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
-            child: TextFormField(
-              obscureText: true,
-              decoration: const InputDecoration(
-                hintText: 'Password',
-              ),
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please enter some text';
-                }
-                return null;
-              },
+          Form(
+            key: _formKey,
+            child: Column(
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
+                  child: TextFormField(
+                    onChanged: (value){
+                      setState(() => email = value);
+                    },
+                    decoration: const InputDecoration(
+                      hintText: 'Username',
+                    ),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter email';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
+                  child: TextFormField(
+                    onChanged: (value){
+                      setState(() => password = value);
+                    },
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      hintText: 'Password',
+                    ),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter password';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
           Row(
@@ -58,7 +84,18 @@ class LoginPage extends StatelessWidget {
               ),
               Text('Remeber me'),
               FlatButton(
-                onPressed: (){},
+                onPressed: ()async{
+                  if (_formKey.currentState.validate()){
+                    print(email);
+                    print(password);
+                    dynamic result = await _auth.signInWithEmailandPass(email,password);
+                    if (result == null){
+                      setState(() => error = 'Please enter a valid email');
+                    }
+                  }else{
+
+                  }
+                },
                 color: Colors.orange[800],
                 child: Text('LOG IN'),
               ),
